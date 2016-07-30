@@ -1,12 +1,14 @@
 
+// Packages required for GUI 
 import java.awt.*;
 import java.util.*;
 import java.io.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-
+// Frame of professional friends
 public class cprofessional extends JFrame {
+	//Components of the frame
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
@@ -15,15 +17,17 @@ public class cprofessional extends JFrame {
     public professional rr;
     public JButton btnNewButton;
 	 public JButton btnNewButton_1;
-    
+       // Constructor
 	public cprofessional() {
-		super("New professional friend");
+		super("New professional friend"); //Title of the frame
 		getContentPane().setLayout(null);
 		
+		//Labels of the frame 
 		JLabel lblName = new JLabel("NAME:");
 		lblName.setBounds(25, 45, 56, 16);
 		getContentPane().add(lblName);
 		
+		// Constructing the professional friends object
 		rr=new professional();
 		
 		JLabel lblBirthday = new JLabel("MOBILE NO:");
@@ -38,10 +42,11 @@ public class cprofessional extends JFrame {
 		lblNewLabel.setBounds(25, 211, 237, 27);
 		getContentPane().add(lblNewLabel);
 		
+		// Button 
 	    btnNewButton = new JButton(" DONE !!");
 		btnNewButton.setBounds(270, 350, 227, 37);
 		getContentPane().add(btnNewButton);
-		btnNewButton.addActionListener(new ActionListener() {
+		btnNewButton.addActionListener(new ActionListener() {  // Action Listener
 			public void actionPerformed(ActionEvent arg0) {
 				
 				  a=0;
@@ -73,13 +78,14 @@ public class cprofessional extends JFrame {
 					t3=1;
 				}
 				
-		     
+		           // Action will be completed only when all text fields are filled
 				if(t==1&&t1==1&&t2==1&&t3==1)
 				{  
 				JOptionPane.showMessageDialog(null,"Contact successfully added !!");
 				setVisible(false);
 				arraylists.professionals.add(rr);
 				
+				// Updating the new contact to the text file
 				try {
 					arraylists.ff.updatefile(arraylists.personals,arraylists.casuals,arraylists.professionals,arraylists.relatives);
 				  } catch (Exception e) {
@@ -95,7 +101,7 @@ public class cprofessional extends JFrame {
 				}
 				
 				else
-				{   
+				{    // Pop box when some text field isn't filled
 					if(a!=1){
 					JOptionPane.showMessageDialog(null,"Please don't leave any field empty.");}
 				else{
@@ -103,12 +109,14 @@ public class cprofessional extends JFrame {
 				}}}
 		});	
 		
+		// Back button
 		 btnNewButton_1 = new JButton("<<BACK");
 		btnNewButton_1.setBounds(25, 350, 227, 37);
 		getContentPane().add(btnNewButton_1);
-		btnNewButton_1.addActionListener(new ActionListener() {
+		btnNewButton_1.addActionListener(new ActionListener() { // Action listener object
 			public void actionPerformed(ActionEvent arg0) {
 				
+				// Moving to another frame
 				setVisible(false);
 				createcourse fad=new createcourse();
 				fad.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -117,6 +125,7 @@ public class cprofessional extends JFrame {
 			}
 		});
 		
+		// Initially, all text fields are empty
 		textField = new JTextField("");
 		textField.setBounds(93, 35, 404, 37);
 		getContentPane().add(textField);
@@ -141,4 +150,6 @@ public class cprofessional extends JFrame {
 		getContentPane().add(textField_3);
 		
 	}
+	//End of constructor
 }
+//End of the class
