@@ -1,14 +1,14 @@
-
-
+//Class for professional friends
 public class professional {
 	public String name;
 	public String mobileno;
 	public String email;
 	public String commoninterest;  // common interests
 
-	//constructor
+	//Class constructor
 	public professional()
 	{
 		name=mobileno=email=commoninterest="";
 	}
-}
+	
+} //End of class 
