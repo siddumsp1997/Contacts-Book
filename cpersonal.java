@@ -21,7 +21,7 @@ public class cpersonal extends JFrame {
 	
 	// Constructor
 	public cpersonal() {
-		super("New personal friend");
+		super("New personal friend"); //Title of the frame
 		getContentPane().setLayout(null);
 		
 		// Labels of the frame
@@ -125,10 +125,11 @@ public class cpersonal extends JFrame {
 	 btnNewButton_1 = new JButton("<<BACK");
 		btnNewButton_1.setBounds(22, 384, 227, 37);
 		getContentPane().add(btnNewButton_1);
-		btnNewButton_1.addActionListener(new ActionListener() {
+		btnNewButton_1.addActionListener(new ActionListener() { //Action listener
 			public void actionPerformed(ActionEvent arg0) {
 				
 				setVisible(false);
+				//Move to another frame
 				createcourse fd=new createcourse();
 				fd.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				fd.setSize(500,553);
