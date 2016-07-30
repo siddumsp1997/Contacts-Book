@@ -1,24 +1,28 @@
-
+// Importing packages for the GUI
 import java.awt.*;
 import java.util.*;
 import java.io.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-
+// Class to delete a contact (frame)
 public class deletecontact extends JFrame{
+	
+	// Components of the frame
 	private JTextField textField;
 	public int a;
 	public String name;
 	public JButton btnNewButton;
 	 public JButton btnNewButton_1;
 	
+	// Class constructor
 	public deletecontact() {
 		
-		super("SEARCH");
+		super("SEARCH"); // Title of the frame
 		getContentPane().setLayout(null);
 		Font pkf=new Font("Serif",Font.ITALIC,17);
 		
+		// Labels of the frame
 		JLabel lblEnterTheName = new JLabel("ENTER THE NAME OF THE CONTACT TO BE SEARCHED FOR:");
 		lblEnterTheName.setBounds(12, 48, 454, 45);
 		getContentPane().add(lblEnterTheName);
@@ -29,35 +33,33 @@ public class deletecontact extends JFrame{
 		getContentPane().add(textField);
 		textField.setColumns(10);
 		
+		// CLose button
 		btnNewButton = new JButton("Close");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				    setVisible(false);
-				/*    mainpage sids=new mainpage();
-					sids.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-					sids.setSize(550,590);
-					sids.setVisible(true); */
-				
-				
+				// Closing the frame
 			}
 		});
 		btnNewButton.setBounds(12, 227, 172, 58);
 		getContentPane().add(btnNewButton);
 		
+		// Proceed Button (to complete action)
 		 btnNewButton_1 = new JButton("PROCEED>>");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnNewButton_1.addActionListener(new ActionListener()  { //Action listener
+			public void actionPerformed(ActionEvent e) { 
 				
 				if(!textField.getText().equals(""))
 				{   a=0;
 					name=textField.getText();
-					
+					// Searching for the contact
 					if(arraylists.relatives!=null){
 					for(relative f:arraylists.relatives)
 					{
 						if(f.name.equals(name))
 						{   a=1;
 							drelative sids=new drelative(f);
+							//Moving to another frame
 							sids.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 							sids.setSize(575,500);
 							sids.setVisible(true);
@@ -73,6 +75,7 @@ public class deletecontact extends JFrame{
 							if(p.name.equals(name))
 							{   a=1;
 								dpersonal sids=new dpersonal(p);
+								// Moving to another frame
 								sids.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 								sids.setSize(575,500);
 								sids.setVisible(true);
@@ -88,6 +91,7 @@ public class deletecontact extends JFrame{
 								if(pu.name.equals(name))
 								{   a=1;
 									dprofessional sids=new dprofessional(pu);
+									// Moving to another frame
 									sids.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 									sids.setSize(575,500);
 									sids.setVisible(true);
@@ -104,6 +108,7 @@ public class deletecontact extends JFrame{
 								if(c.name.equals(name))
 								{   a=1;
 									dcasual sids=new dcasual(c);
+									// Moving to another frame
 									sids.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 									sids.setSize(575,500);
 									sids.setVisible(true);
@@ -114,14 +119,14 @@ public class deletecontact extends JFrame{
 						
 						
 						if(a==0)
-						{
+						{    // Pop box if the contact is not found
 							JOptionPane.showMessageDialog(null,"Sorry, Contact not found !!");
 						}
 						
 					
 					
 				}
-				
+				// pop up if the name field is empty
 				else
 				{
 					JOptionPane.showMessageDialog(null,"Enter a name to proceed !!");
@@ -132,6 +137,7 @@ public class deletecontact extends JFrame{
 		btnNewButton_1.setBounds(250, 228, 181, 57);
 		getContentPane().add(btnNewButton_1);
 	}
-
+         // End of constructor
 	
 }
+//end of the class
