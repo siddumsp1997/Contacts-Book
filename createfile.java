@@ -1,16 +1,17 @@
 import java.util.*;
 import java.io.*;
 
-
+// Class to create .txt file and update contacts when necesssary
 public class createfile {
 	
+	// File objects
 	File file;
 	FileReader fr;
 	BufferedReader br;
 	PrintStream fileStream;
     
 	
-	//constructor
+	//class constructor (creating a new txt file)
 	public createfile(ArrayList<personal> m,ArrayList<casual> n,ArrayList<professional> i,ArrayList<relative> p)throws Exception
 	{    int flag=1;
 	    
@@ -30,14 +31,15 @@ public class createfile {
 				file.createNewFile();
 		    }
 			
-			
+			// If the file already exists, retrieve the existing data from the txt file to the respective array lists
 			else
-			{
+			{      // Use buffered reader
 				fr=new FileReader("database.txt");
 				br=new BufferedReader(fr);
 				
 				String line;
 				
+				// Retrieving the existing data from the txt file
 				while((line=br.readLine())!=null)
 				{   
 					
@@ -167,11 +169,11 @@ public class createfile {
 	public void updatefile(ArrayList<personal> m,ArrayList<casual> n,ArrayList<professional> i,ArrayList<relative> p )throws Exception 
 	{    
 		
-		 
+		 // Using filestream
 		  fileStream = new PrintStream("database.txt");
 		  
 		     fileStream.println("Relatives");
-		     
+		     // Updating the txt file 
 		     if(p!=null){
 		     for(relative r:p)
 		     {
@@ -232,7 +234,7 @@ public class createfile {
 	}//end of updatefile	     
 		
 	
-	//to close the file
+	//Function to close the file
 	public void closefile()throws Exception
 	
 	{   if(fr!=null&&br!=null){
@@ -240,8 +242,6 @@ public class createfile {
 		br.close();
 	    }
 	}
-		 
 
-	
 }
 //end of class createfile
