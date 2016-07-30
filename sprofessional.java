@@ -102,7 +102,7 @@ public class sprofessional extends JFrame {
 		
 	}//end of constructor
 	
-	//Class to implement Item listener
+	//Class to implement Item listener so that no more than one option is selected
 	public class KGP implements ItemListener
 	{
 		
