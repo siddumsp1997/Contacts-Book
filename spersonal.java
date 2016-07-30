@@ -1,20 +1,22 @@
-
+//Importing swing packages for GUI 
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.util.*;
 
+// Class to show personal friends
 public class spersonal extends JFrame {
-	
-
+	// Components of the frame
 	public ButtonGroup grp6;
 	public JRadioButton a5[]=new JRadioButton[25];
 	public int index0;
 	public JButton btnNewButton;
 	 public JButton btnNewButton1;
 	 
+	// Class constructor 
 	public spersonal() {
-		super("Personal friends ");
+		super("Personal friends ");  // Tilte frame
+		
 		getContentPane().setLayout(null);
 		Font pf=new Font("Serif",Font.PLAIN,25);
 		KGP kgp=new KGP();
@@ -27,7 +29,8 @@ public class spersonal extends JFrame {
 		lblAvailableCourses.setBounds(12, 13, 451, 88);
 		getContentPane().add(lblAvailableCourses);
 		lblAvailableCourses.setFont(pf);
-       
+                
+                //Checking if there are any contactss
 		if(arraylists.personals.size()>0){
 		for(int i=0;i<arraylists.personals.size();i++)
 		{  a5[i] = new JRadioButton(arraylists.personals.get(i).name);
@@ -41,7 +44,7 @@ public class spersonal extends JFrame {
 		}}
 		
 		 else
-	       {
+	       {  // If there are no contacts available
 	    	JLabel lblAvailableCourses1 = new JLabel("No personal friends found in database..!!");
 	   		lblAvailableCourses1.setFont(pf);
 	   		lblAvailableCourses1.setBounds(122,201,437,38);
@@ -49,22 +52,22 @@ public class spersonal extends JFrame {
 	   		lblAvailableCourses1.setFont(pf1);
 	       } 
 		
-		 btnNewButton = new JButton("VIEW CONTACT>>");
+		// Button the contact's details
+		btnNewButton = new JButton("VIEW CONTACT>>");
 		btnNewButton.setBounds(314, 530, 283, 44);
 		getContentPane().add(btnNewButton);
 		btnNewButton.setFont(pf);
 		btnNewButton.addActionListener(
-				new ActionListener(){
+				new ActionListener(){  
 				public void actionPerformed(ActionEvent es)
 				{  if(index0==-1)
-				{
+				{      // If no option is selected
 					JOptionPane.showMessageDialog(null,"Please select a contact to view its contents.");
 				}
 					
-					
 				else{
 					setVisible(false);
-					dpersonal fd=new dpersonal(arraylists.personals.get(index0));
+					dpersonal fd=new dpersonal(arraylists.personals.get(index0)); // Move to next frame
 					fd.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 					fd.setSize(575,500);
 					fd.setVisible(true);
@@ -74,8 +77,8 @@ public class spersonal extends JFrame {
 				
 				});
 		
-
-	 btnNewButton1 = new JButton("<<BACK");
+                //Back Button 
+	        btnNewButton1 = new JButton("<<BACK");
 		btnNewButton1.setBounds(19, 530, 283, 44);
 		getContentPane().add(btnNewButton1);
 		btnNewButton1.setFont(pf);
@@ -83,7 +86,7 @@ public class spersonal extends JFrame {
 				new ActionListener(){
 				public void actionPerformed(ActionEvent es)
 				{  
-					
+					//Move to show contact frame
 					setVisible(false);
 					showcontact mans14=new showcontact();
 					mans14.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -97,10 +100,9 @@ public class spersonal extends JFrame {
 		
 	}//end of constructor
 	
-	
+	// Item listener to not allow choosing more than one option
 	public class KGP implements ItemListener
 	{
-		
 	  public void itemStateChanged(ItemEvent ee)
 	  {
 		 for(int i=0;i<arraylists.personals.size();i++)
@@ -110,12 +112,8 @@ public class spersonal extends JFrame {
 				 index0=i;
 			 }
 			 
-		 }
-		  		  
+		 } 		  
 	  }
-	
-	
 	}//end of KGP
 	
-	
-}
+} //End of class
