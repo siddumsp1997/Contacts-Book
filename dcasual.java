@@ -1,14 +1,13 @@
-
-
+// Import packages for the GUI
 import java.awt.*;
 import java.util.*;
 import java.io.*;
 import java.awt.event.*;
-
 import javax.swing.*;
 
-
+// Frame to delete casual friend contact
 public class dcasual extends JFrame {
+	//Components of the frame
 	private JTextField textField;
 	private JTextArea textField_1;
 	private JTextField textField_2;
@@ -18,12 +17,16 @@ public class dcasual extends JFrame {
 	 public JButton btnNewButton;
 	 public JButton btnNewButton_1;
 	 
+	 // Class constructor
 	public dcasual(casual k) {
-		super("Casual friend- "+k.name);
+		super("Casual friend- "+k.name); // Title of the frame
 		getContentPane().setLayout(null);
 		
+		// Creating a casual friend object
 		rk=new casual();
 		rk=k;
+		
+		// Frame labels
 		JLabel lblName = new JLabel("NAME:");
 		lblName.setBounds(25, 45, 56, 16);
 		getContentPane().add(lblName);
@@ -44,17 +47,19 @@ public class dcasual extends JFrame {
 		lblEmailId.setBounds(25, 341, 56, 16);
 		getContentPane().add(lblEmailId);
 		
+		// Button to delete contact
 		 btnNewButton = new JButton("DELETE CONTACT");
-		btnNewButton.addActionListener(new ActionListener() {
+		btnNewButton.addActionListener(new ActionListener() { // Action listener
 			public void actionPerformed(ActionEvent arg0) {
 				
-
+				// Searching for the contacct to be deleted
 				for(int i=0;i<arraylists.casuals.size();i++)
 				{
 					if(rk.name.equals(arraylists.casuals.get(i).name))
 					{
-						
+						// Deleting the contact
 						arraylists.casuals.remove(i);
+						// Updating the changes to the file
 						try {
 							arraylists.ff.updatefile(arraylists.personals,arraylists.casuals,arraylists.professionals,arraylists.relatives);
 						  } catch (Exception e) {
@@ -62,29 +67,26 @@ public class dcasual extends JFrame {
 							e.printStackTrace();
 						    }
 					}
-					
-					
-					
 				}
 				
 				JOptionPane.showMessageDialog(null,"Contact successfully deleted !!");
 				setVisible(false);
+				// exiting frame..
 			/*	deletecontact fd=new deletecontact();
 				fd.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				fd.setSize(625,666);
 				fd.setVisible(true);*/
-				
-				
 				
 			}
 		});
 		btnNewButton.setBounds(276, 384, 249, 37);
 		getContentPane().add(btnNewButton);
 		
+		// Close button to close the frame
 		 btnNewButton_1 = new JButton("CLOSE");
 		btnNewButton_1.setBounds(22, 384, 227, 37);
 		getContentPane().add(btnNewButton_1);
-		btnNewButton_1.addActionListener(new ActionListener() {
+		btnNewButton_1.addActionListener(new ActionListener() { // Action listener
 			public void actionPerformed(ActionEvent arg0) {
 				
 				setVisible(false);
@@ -95,6 +97,7 @@ public class dcasual extends JFrame {
 			}
 		});
 		
+		// Text fields of the frame
 		textField = new JTextField(rk.name);
 		textField.setBounds(93, 35, 432, 37);
 		getContentPane().add(textField);
@@ -125,4 +128,6 @@ public class dcasual extends JFrame {
 		getContentPane().add(textField_4);
 		textField_4.setEditable(false);
 	}
+	// end of the constructor
 }
+// end of the class
