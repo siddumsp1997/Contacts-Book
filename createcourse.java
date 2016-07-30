@@ -65,7 +65,7 @@ public class createcourse extends JFrame {
 		 grp3.add(rdbtnNewRadioButton_1);
 		 rdbtnNewRadioButton_1.addItemListener(kgp);
 		
-		// Button
+		// Next Button
 		 btnNewButton = new JButton("Next>>");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
