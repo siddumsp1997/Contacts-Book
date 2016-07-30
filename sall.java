@@ -1,20 +1,21 @@
+// Importing packages for the GUI
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.util.*;
 
-
+// Frame to show all contacts
 public class sall extends JFrame {
-	public JButton btnNewButton;
+	public JButton btnNewButton; // Frame component
 	
-	
-
+	// Class constructor
 	public sall()
-	{   super("List of all acquintances");
+	{       super("List of all acquintances");   // Frame Title 
 		getContentPane().setLayout(null);
 		
 		Font kf=new Font("Serif",Font.ITALIC,25);
 		
+		// Labels of the frame
 		JLabel lblRelatives = new JLabel("RELATIVES");
 		lblRelatives.setBounds(67, 13, 77, 16);
 		getContentPane().add(lblRelatives);
@@ -51,11 +52,13 @@ public class sall extends JFrame {
 		getContentPane().add(textArea_3);
 		textArea_3.setEditable(false);
 		
+		// Button to go to main menu
 		btnNewButton = new JButton("BACK TO MAIN MENU");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				setVisible(false);
+				// Move to show previous frame
 				showcontact gf=new showcontact();
 				gf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				gf.setSize(476,617);
@@ -65,37 +68,39 @@ public class sall extends JFrame {
 		});
 		btnNewButton.setBounds(33, 620, 948, 36);
 		getContentPane().add(btnNewButton);
-	    btnNewButton.setFont(kf);
+	        btnNewButton.setFont(kf);
 		
-		 int i;
-		     
+		            int i;
+		           // Displaying the contacts in the respective text areas
 			    i=1;	
 				for(relative f:arraylists.relatives)
 				{
-					textArea.append(i+") "+f.name+"\n");
+					textArea.append(i+") "+f.name+"\n"); // writing on the text area
 					i++;
 				}		
 
 		        i=1;
 				for(personal p:arraylists.personals)
 				{
-					textArea_1.append(i+") "+p.name+"\n");
+					textArea_1.append(i+") "+p.name+"\n"); // writing on the text area
 					i++;
 				}
 				
 			   i=1;
 				for(professional pu:arraylists.professionals)
 				{
-					textArea_2.append(i+") "+pu.name+"\n");
+					textArea_2.append(i+") "+pu.name+"\n"); // writing on the text area
 					i++;
 				}
 			
 		       i=1;
 				for(casual c:arraylists.casuals)
 				{
-					textArea_3.append(i+") "+c.name+"\n");
+					textArea_3.append(i+") "+c.name+"\n"); // writing on the text area
 					i++;
 				}
 			
-	}
+	} 
+	//End of constructor
 }
+//End of class
