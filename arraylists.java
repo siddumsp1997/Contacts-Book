@@ -1,7 +1,7 @@
 
 import java.util.ArrayList;
 
-
+// A class comprising the array lists of acquaintances of all relationship modes
 public class arraylists {
 
 	public static  ArrayList<relative> relatives;
