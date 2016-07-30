@@ -1,12 +1,13 @@
-
+// Importing packages for the GUi
 import java.awt.*;
 import java.util.*;
 import java.io.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-
+// Class to create new relative (Frame)
 public class crelative extends JFrame {
+	//Components of the frame
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
@@ -16,15 +17,18 @@ public class crelative extends JFrame {
     public relative r;
     public JButton btnNewButton;
 	 public JButton btnNewButton_1;
-    
+       
+       //Class constructor
 	public crelative() {
-		super("New relative");
+		super("New relative");   // Title of the frame
 		getContentPane().setLayout(null);
 		
+		// Labels of the frame
 		JLabel lblName = new JLabel("NAME:");
 		lblName.setBounds(25, 45, 56, 16);
 		getContentPane().add(lblName);
 		
+		// Creating a new relative object
 		r=new relative(); 
 		
 		JLabel lblBirthday = new JLabel("BIRTHDAY:");
@@ -43,10 +47,11 @@ public class crelative extends JFrame {
 		lblEmailId.setBounds(25, 280, 56, 16);
 		getContentPane().add(lblEmailId);
 		
+		// Done Button
 		 btnNewButton = new JButton(" DONE !!");
 		btnNewButton.setBounds(270, 350, 227, 37);
 		getContentPane().add(btnNewButton);
-		btnNewButton.addActionListener(new ActionListener() {
+		btnNewButton.addActionListener(new ActionListener() {  // Action listener
 			public void actionPerformed(ActionEvent arg0) {
 				
 				  a=0;
@@ -83,7 +88,7 @@ public class crelative extends JFrame {
 				{   r.email=textField_4.getText();
 					t4=1;
 				}
-				
+			 //Will complete action only if all the textfields are filled	
 				if(t==1&&t1==1&&t2==1&&t3==1&&t4==1)
 				{  
 				JOptionPane.showMessageDialog(null,"Contact successfully added !!");
@@ -91,6 +96,7 @@ public class crelative extends JFrame {
 				if(r!=null){
 				arraylists.relatives.add(r);}
 				
+				// Updating the new contact to the text file
 				try {
 					arraylists.ff.updatefile(arraylists.personals,arraylists.casuals,arraylists.professionals,arraylists.relatives);
 				  } catch (Exception e) {
@@ -105,8 +111,8 @@ public class crelative extends JFrame {
 				//update file
 				}
 				
-				else
-				{   
+				else 
+				{    // Pop box if any text field is not filled
 					if(a!=1){
 					JOptionPane.showMessageDialog(null,"Please don't leave any field empty.");}
 				else{
@@ -118,14 +124,15 @@ public class crelative extends JFrame {
 		});	
 		
 
-		
+		// Back button
 		 btnNewButton_1 = new JButton("<<BACK");
 		btnNewButton_1.setBounds(25, 350, 227, 37);
 		getContentPane().add(btnNewButton_1);
-		btnNewButton_1.addActionListener(new ActionListener() {
+		btnNewButton_1.addActionListener(new ActionListener() {  // Action listener
 			public void actionPerformed(ActionEvent arg0) {
 				
 				setVisible(false);
+				// Moving to create course frame
 				createcourse fd=new createcourse();
 				fd.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				fd.setSize(500,553);
@@ -133,6 +140,7 @@ public class crelative extends JFrame {
 			}
 		});
 		
+		// Initially, all text fields are empty
 		textField = new JTextField(""); //name
 		textField.setBounds(93, 35, 404, 37);
 		getContentPane().add(textField);
@@ -164,4 +172,6 @@ public class crelative extends JFrame {
 		textField_4.setUI(new HintTextFieldUI("@gmail.com",true));
 		
 	}
+	//End of constructor
 }
+// End of relatives class
