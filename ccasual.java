@@ -1,12 +1,14 @@
-
+//Headers for GUI
 import java.awt.*;
 import java.util.*;
 import java.io.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-
+// Frame of Casual friends 
 public class ccasual extends JFrame {
+	
+	// Required elements for the frame
 	private JTextField textField;
 	private JTextArea textField_1;
 	private JTextField textField_2;
@@ -17,10 +19,12 @@ public class ccasual extends JFrame {
 	 public JButton btnNewButton_1;
 	 public JButton btnNewButton;
 	 
+	 //Constructor
 	   public ccasual() {
 		super("New casual friend");
 		getContentPane().setLayout(null);
 		
+		// Test field elements
 		rk=new casual();
 		JLabel lblName = new JLabel("NAME:");
 		lblName.setBounds(25, 45, 56, 16);
@@ -34,7 +38,6 @@ public class ccasual extends JFrame {
 		lblMobileNo.setBounds(25, 227, 99, 16);
 		getContentPane().add(lblMobileNo);
 	
-		
 		JLabel lblNewLabel = new JLabel("OTHER USEFUL INFO:"); //MAX 100 chars
 		lblNewLabel.setBounds(12, 277, 237, 27);
 		getContentPane().add(lblNewLabel);
@@ -42,10 +45,11 @@ public class ccasual extends JFrame {
 		JLabel lblEmailId = new JLabel("EMAIL ID:");
 		lblEmailId.setBounds(25, 341, 56, 16);
 		getContentPane().add(lblEmailId);
-		
+	
+	   // Button element	
 	   btnNewButton = new JButton(" DONE !!");
 		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent arg0) {  // Will complete action only if all the text fields are filled
 				 a=0;
 				  t=t1=t2=t3=t4=0;
 				if(!textField.getText().equals(""))
@@ -86,6 +90,7 @@ public class ccasual extends JFrame {
 				setVisible(false);
 				arraylists.casuals.add(rk);
 				
+				// Updating the new member to the text file
 				try {
 					arraylists.ff.updatefile(arraylists.personals,arraylists.casuals,arraylists.professionals,arraylists.relatives);
 				  } catch (Exception e) {
@@ -102,7 +107,7 @@ public class ccasual extends JFrame {
 				}
 				
 				else
-				{   
+				{     // Message box showing that some text field hasn't been filled
 					if(a!=1){
 					JOptionPane.showMessageDialog(null,"Please don't leave any field empty.");}
 				else{
@@ -114,6 +119,7 @@ public class ccasual extends JFrame {
 		btnNewButton.setBounds(276, 384, 249, 37);
 		getContentPane().add(btnNewButton);
 		
+		//Back Button
 	   btnNewButton_1 = new JButton("<<BACK");
 		btnNewButton_1.setBounds(22, 384, 227, 37);
 		getContentPane().add(btnNewButton_1);
@@ -128,6 +134,7 @@ public class ccasual extends JFrame {
 			}
 		});
 		
+		// At first, all the text fields are empty
 		textField = new JTextField("");
 		textField.setBounds(93, 35, 432, 37);
 		getContentPane().add(textField);
@@ -157,5 +164,6 @@ public class ccasual extends JFrame {
 		getContentPane().add(textField_4);
 		textField_4.setUI(new HintTextFieldUI("@gmail.com",true));
 		
-	}
+	} //End of the constructor
 }
+// End of the class
