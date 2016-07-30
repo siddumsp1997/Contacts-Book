@@ -1,14 +1,14 @@
-//Headers for GUI
+//Importing packages for GUI
 import java.awt.*;
 import java.util.*;
 import java.io.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-// Frame of Casual friends 
+// Class to create a Casual friend (frame)
 public class ccasual extends JFrame {
 	
-	// Required elements for the frame
+	// Components of the frame
 	private JTextField textField;
 	private JTextArea textField_1;
 	private JTextField textField_2;
@@ -19,12 +19,12 @@ public class ccasual extends JFrame {
 	 public JButton btnNewButton_1;
 	 public JButton btnNewButton;
 	 
-	 //Constructor
+	 // Class Constructor
 	   public ccasual() {
 		super("New casual friend");
 		getContentPane().setLayout(null);
 		
-		// Test field elements
+		// Frame labels
 		rk=new casual();
 		JLabel lblName = new JLabel("NAME:");
 		lblName.setBounds(25, 45, 56, 16);
@@ -46,7 +46,7 @@ public class ccasual extends JFrame {
 		lblEmailId.setBounds(25, 341, 56, 16);
 		getContentPane().add(lblEmailId);
 	
-	   // Button element	
+	   // Done Button 	
 	   btnNewButton = new JButton(" DONE !!");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {  // Will complete action only if all the text fields are filled
